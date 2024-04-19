@@ -14,7 +14,7 @@ const Header = ({ walletToggle, navigationToggle }) => {
       <div className="header">
         <div className="header_in">
           <div className="trigger_logo">
-            <div className="trigger" onClick={() => navigationToggle(true)}>
+            <div className="gone" onClick={() => navigationToggle(true)}>
               <span />
             </div>
             <div className="logo">
@@ -25,31 +25,31 @@ const Header = ({ walletToggle, navigationToggle }) => {
               </Link>
             </div>
           </div>
-          <div className="nav" style={{ opacity: 1 }}>
+          <div className="nav" style={{ opacity: 0 }}>
             <ul>
               <li>
                 <Link href="/#home">
-                  <a className="creative_link">Home</a>
+                  <a className="creative_link"></a>
                 </Link>
               </li>
               <li>
                 <Link href="/#about">
-                  <a className="creative_link">About</a>
+                  <a className="creative_link"></a>
                 </Link>
               </li>
               <li>
                 <Link href="/#collection">
-                  <a className="creative_link">Collection</a>
+                  <a className="creative_link"></a>
                 </Link>
               </li>
               <li>
                 <Link href="/#news">
-                  <a className="creative_link">Blog</a>
+                  <a className="creative_link"></a>
                 </Link>
               </li>
               <li>
                 <Link href="/#contact">
-                  <a className="creative_link">Contact</a>
+                  <a className="creative_link"></a>
                 </Link>
               </li>
             </ul>
