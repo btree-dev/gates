@@ -35,7 +35,7 @@ const Footer = () => {
                 </Link>
               </li>
             <li>
-              <a className="creative_link"> <Social /></a>
+            <div className="creative_link"><Social /></div>
             </li>
             </ul>
           </div>
