@@ -1,7 +1,42 @@
+								  
 import React, { useEffect, useState } from 'react';
+import UserDataFetcher from "/src/components/UserDataFetcher";
+
+const UserDataComponent = ({ apiUrl }) => {
+  const [displayName, setDisplayName] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+        const userData = await response.json();
+        const userDisplayName = userData.result.user.displayName;
+        setDisplayName(userDisplayName);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchData();
+  }, [apiUrl]); // Dependency array includes apiUrl to re-fetch data when it changes
+
+  return (
+    <div>
+      <h2>User Display Name:</h2>
+      <p>{displayName}</p>
+    </div>
+  );
+};
 
 const HeroSlider = () => {
   const [isClicked, setIsClicked] = useState(false);
+
+  const handleAnchorClick = () => {
+    setIsClicked(true);
+  };
 
   useEffect(() => {
     const fn_cs_slider = document.querySelectorAll(".fn_cs_slider");
@@ -121,10 +156,6 @@ const HeroSlider = () => {
     return activeIndex;
   };
 
-  const handleAnchorClick = () => {
-    setIsClicked(true);
-  };
-
   return (
     <section id="home">
       <div className="container">
@@ -160,17 +191,24 @@ const HeroSlider = () => {
                 <div className="item has_video">
                   <img src="/img/1x1.jpg" alt="" />
                   {!isClicked && (
-                    <a
+                    <><a
                       className="popup-youtube metaportal_fn_videobutton"
                       href="https://www.youtube.com/embed/7e90gBu4pas"
                       onClick={handleAnchorClick}
                     >
                       <img src="/svg/play.svg" alt="" className="fn__svg" />
-                    </a>
+                    </a><div className="item_in">
+                        <div className="img" data-bg-img="/img/slider/3.png" />
+                      </div></>
                   )}
-                  <div className="item_in">
+                                   <div className="item_in">
                     <div className="img" data-bg-img="/img/slider/3.png" />
                   </div>
+									
+                  {isClicked && (
+                    <UserDataFetcher />
+                
+                  )}
                 </div>
               </li>
               <li className="next2" data-index={4}>
@@ -241,6 +279,16 @@ const HeroSlider = () => {
         {/* !Description */}
       </div>
     </section>
+  );
+};
+
+
+const CombinedComponent = () => {
+  return (
+    <>
+      <HeroSlider />
+      <UserDataFetcher />
+    </>
   );
 };
 
