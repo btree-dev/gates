@@ -2,18 +2,15 @@ const Social = () => {
   return (
     <div id="social" className="hold">
       <div className="social">
-        <h4 className="title">Follow Us:</h4>
-        <ul>
-          <li>
-            <a
+        <p className="title">Follow Us:&nbsp;&nbsp;          
+         <a
               href="https://warpcast.com/~/channel/thecreators"
               target="_blank"
               rel="noreferrer"
             >
-              Farcaster.
-            </a>
-          </li>
-        </ul>
+               Farcaster.
+            </a></p>
+
       </div>
     </div>
   );

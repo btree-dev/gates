@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Social from "./Social";
 const Footer = () => {
   return (
     <footer id="footer">
@@ -33,11 +34,17 @@ const Footer = () => {
                   <a className="creative_link">Terms &amp; Conditions</a>
                 </Link>
               </li>
+            <li>
+              <a className="creative_link"> <Social /></a>
+            </li>
             </ul>
           </div>
         </div>
       </div>
+      <br></br>
+      <center>This website is open-source, and built on the <a href="https://guild.xyz/sdk" target="_blank" rel="noopener noreferrer">Guild SDK</a></center>
     </footer>
+
   );
 };
 export default Footer;

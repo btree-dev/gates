@@ -11,7 +11,6 @@ import PreLoader from "./PreLoader";
 import ScrollTop from "./ScrollTop";
 import Searchbox from "./Searchbox";
 import SearchButton from "./SearchButton";
-import Social from "./Social";
 import WalletPopUp from "./WalletPopUp";
 const Layout = ({ children, pageTitle }) => {
   useEffect(() => {
@@ -55,7 +54,6 @@ const Layout = ({ children, pageTitle }) => {
         </div>
         {/* !Content */}
         {/* Social */}
-        <Social />
         {/* !Social */}
         {/* Totop */}
         <ScrollTop />

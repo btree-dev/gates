@@ -389,18 +389,6 @@ a.full_link{
 	display: none;
 	overflow: hidden;
 }
-.metaportal_fn_mobnav .social_trigger{
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	-ms-align-items: center;
-	align-items: center;
-}
-.metaportal_fn_mobnav .social_trigger .trigger{
-	margin-right: 20px;
-}
 .metaportal_fn_mobnav .mob_mid,
 .metaportal_fn_mobnav .mob_top{
 	display: -webkit-flex;
@@ -436,92 +424,6 @@ a.full_link{
 .metaportal_fn_mobnav .mob_bot a{
 	line-height: 27px;
 }
-.metaportal_fn_mobnav .social{
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	-ms-align-items: center;
-	align-items: center;
-}
-
-
-/* Social Icons */
-#social{
-	z-index: 5;
-	position: fixed;
-	left: 50px;
-	top: 50%;
-	transition: all .5s ease;
-}
-#social.hold{
-	transform: translateX(-200px);
-}
-#social .social{
-	-moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
-    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
-    transform: translateX(-50%) translateY(-50%) rotate(-90deg);
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	position: absolute;
-	width: max-content;
-	-ms-align-items: center;
-	align-items: center;
-}
-.social ul{
-	margin: 0;
-	list-style-type: none;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	-ms-align-items: center;
-	align-items: center;
-}
-.social li{
-	margin: 0;
-	font-family: var(--hff);
-	font-size: 18px;
-	text-decoration: none;
-	color: var(--hc);
-	font-weight: 500;
-	letter-spacing: 0;
-}
-.social li:after{
-	content: '/';
-	margin: 0 6px;
-}
-.social li:last-child:after{
-	content: '';
-}
-.social .title{
-	margin: 0;
-	padding: 0;
-	margin-right: 10px;
-	line-height: 50px;
-}
-.social a{
-	font-family: var(--hff);
-	font-size: 18px;
-	text-decoration: none;
-	color: var(--hc);
-	font-weight: 500;
-	letter-spacing: 0;
-}
-.social a:hover{
-	color: var(--mc1);
-}
-
-
-
-
-
-
 
 
 /*Main Button*/
@@ -810,7 +712,8 @@ a.full_link{
 .header.active{
 	z-index: 60;
 	padding: 20px 30px;
-	border-bottom-color: rgba(255,255,255,.08);
+	border-bottom-color: rgba(255, 255, 255, 0);
+	opacity: 0;
 }
 .header .header_in{
 	display: -webkit-flex;
