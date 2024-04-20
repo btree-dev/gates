@@ -23,7 +23,7 @@ const UserDataComponent = ({ apiUrl }) => {
 
   return (
     <div>
-      <h2>User Display Name:</h2>
+      <h2></h2>
       <p>{displayName}</p>
     </div>
   );
