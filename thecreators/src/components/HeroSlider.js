@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from 'react';
 
 const HeroSlider = () => {
-  // Hero slider
+  const [isClicked, setIsClicked] = useState(false);
+
   useEffect(() => {
     const fn_cs_slider = document.querySelectorAll(".fn_cs_slider");
     fn_cs_slider.forEach((element) => {
@@ -104,20 +105,24 @@ const HeroSlider = () => {
     }
     sliderTop
       .querySelector('li[data-index="' + indexPrev2 + '"]')
-      .classList.add("prev2");
+      ?.classList.add("prev2");
     sliderTop
       .querySelector('li[data-index="' + indexPrev + '"]')
-      .classList.add("prev");
+      ?.classList.add("prev");
     sliderTop
       .querySelector('li[data-index="' + activeIndex + '"]')
-      .classList.add("active");
+      ?.classList.add("active");
     sliderTop
       .querySelector('li[data-index="' + indexNext + '"]')
-      .classList.add("next");
+      ?.classList.add("next");
     sliderTop
       .querySelector('li[data-index="' + indexNext2 + '"]')
-      .classList.add("next2");
+      ?.classList.add("next2");
     return activeIndex;
+  };
+
+  const handleAnchorClick = () => {
+    setIsClicked(true);
   };
 
   return (
@@ -154,12 +159,15 @@ const HeroSlider = () => {
               <li className="next" data-index={3}>
                 <div className="item has_video">
                   <img src="/img/1x1.jpg" alt="" />
-                  <a
-                    className="popup-youtube metaportal_fn_videobutton"
-                    href="https://www.youtube.com/embed/7e90gBu4pas"
-                  >
-                    <img src="/svg/play.svg" alt="" className="fn__svg" />
-                  </a>
+                  {!isClicked && (
+                    <a
+                      className="popup-youtube metaportal_fn_videobutton"
+                      href="https://www.youtube.com/embed/7e90gBu4pas"
+                      onClick={handleAnchorClick}
+                    >
+                      <img src="/svg/play.svg" alt="" className="fn__svg" />
+                    </a>
+                  )}
                   <div className="item_in">
                     <div className="img" data-bg-img="/img/slider/3.png" />
                   </div>
@@ -235,4 +243,5 @@ const HeroSlider = () => {
     </section>
   );
 };
+
 export default HeroSlider;
