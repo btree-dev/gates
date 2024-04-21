@@ -1,8 +1,8 @@
-import dynamic from "next/dynamic";
+import dynamic from "next/dynamic"
 
 const Counter = dynamic(() => import("./Counter"), {
   ssr: false,
-});
+})
 
 const FunFacts = () => {
   return (
@@ -17,7 +17,7 @@ const FunFacts = () => {
                   <Counter end={9999} />
                   <span className="suffix" />
                 </h3>
-                <p>Total Items</p>
+                <p>Total NFTs</p>
                 <div className="divider" />
               </div>
             </li>
@@ -58,6 +58,6 @@ const FunFacts = () => {
         </div>
       </div>
     </section>
-  );
-};
-export default FunFacts;
+  )
+}
+export default FunFacts

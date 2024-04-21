@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react"
 import useClickOutside from "../../useClickOutside"
+import UserDataFetcher from "/src/components/UserDataFetcher"
 
-const VideoPopup_ = ({ close, videoID }) => {
+const ReqPopup_ = ({ close, videoID }) => {
   let domNode = useClickOutside(() => {
     close(false)
   })
@@ -14,23 +15,21 @@ const VideoPopup_ = ({ close, videoID }) => {
         style={{ overflow: "hidden auto" }}
       >
         <div className="mfp-container mfp-s-ready mfp-iframe-holder">
-          <div className="mfp-content" ref={domNode}>
-            <div className="mfp-iframe-scaler">
+          <div className="mfp-content mfp-req-content" ref={domNode}>
+            <div>
               <button
                 title="Close (Esc)"
                 type="button"
                 className="mfp-close"
                 onClick={() => close()}
               >
-                ×Y
+                ×
               </button>
-              <iframe
-                src={videoID}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <div className="mfp-reqs-out">
+                <div className="mfp-reqs-in">
+                  <UserDataFetcher />
+                </div>
+              </div>
             </div>
           </div>
           <div className="mfp-preloader">Loading...</div>
@@ -40,18 +39,14 @@ const VideoPopup_ = ({ close, videoID }) => {
   )
 }
 
-const VideoPopup = () => {
+const ReqPopup = () => {
   const [video, setVideo] = useState(false)
   const [videoValue, setVideoValue] = useState(null)
   useEffect(() => {
     setTimeout(() => {
       const a = document.querySelectorAll("a")
       a.forEach((a) => {
-        if (
-          a.href.includes("www.youtube.com") ||
-          a.href.includes("vimeo.com") ||
-          a.href.includes("soundcloud.com")
-        ) {
+        if (a.href.includes("Req")) {
           a.addEventListener("click", (e) => {
             e.preventDefault()
             setVideoValue(a.href)
@@ -63,9 +58,9 @@ const VideoPopup = () => {
   }, [])
   return (
     <Fragment>
-      {video && <VideoPopup_ close={() => setVideo(false)} videoID={videoValue} />}
+      {video && <ReqPopup_ close={() => setVideo(false)} videoID={videoValue} />}
     </Fragment>
   )
 }
 
-export default VideoPopup
+export default ReqPopup
